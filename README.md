@@ -1,55 +1,63 @@
-sudo apt-get install network-manager-openvpn
+Basic
+-----
 
-sudo apt-get install curl
+* sudo apt-get install network-manager-openvpn
 
-#Kernel
+* sudo apt-get install curl
 
-sudo apt-get install ukuu
+Kernel
+------
 
-#GIT
+* sudo apt-get install ukuu
 
-sudo apt-get install git
+GIT
+---
 
-git config --global user.name "testuser"
+* sudo apt-get install git
 
-git config --global user.email "testuser@example.com"
+* git config --global user.name "testuser"
 
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+* git config --global user.email "testuser@example.com"
 
-eval "$(ssh-agent -s)"
+* ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
-ssh-add ~/.ssh/id_rsa
+* eval "$(ssh-agent -s)"
 
-sudo apt-get install xclip
+* ssh-add ~/.ssh/id_rsa
 
-xclip -sel clip < ~/.ssh/id_rsa.pub
+* sudo apt-get install xclip
 
-Config transfer to usb speed 
+* xclip -sel clip < ~/.ssh/id_rsa.pub
 
-in sudo su 
-#11 echo $((16*1024*1024)) > /proc/sys/vm/dirty_background_bytes
+* Config transfer to usb speed 
 
-#12 echo $((48*1024*1024)) > /proc/sys/vm/dirty_bytes
+*in sudo su
 
-#Docker 
+* echo $((16*1024*1024)) > /proc/sys/vm/dirty_background_bytes
 
-sudo apt install docker.io
+* echo $((48*1024*1024)) > /proc/sys/vm/dirty_bytes
 
-sudo systemctl start docker
+Docker 
+-------
 
-sudo systemctl enable docker
+* sudo apt install docker.io
 
-sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+* sudo systemctl start docker
 
-sudo chmod +x /usr/bin/docker-compose
+* sudo systemctl enable docker
 
-sudo groupadd docker
+* sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
 
-sudo usermod -aG docker $USER
+* sudo chmod +x /usr/bin/docker-compose
 
-#For docker xdebug
+* sudo groupadd docker
 
-sudo ufw allow in on docker0 from 172.17.0.0/24 to 172.17.0.1/32 port 9000 comment xdebug
-sudo iptables -I INPUT -p tcp -m tcp --dport 9000 -j ACCEPT
+* sudo usermod -aG docker $USER
+
+For docker xdebug
+-----------------
+
+* sudo ufw allow in on docker0 from 172.17.0.0/24 to 172.17.0.1/32 port 9000 comment xdebug
+* sudo iptables -I INPUT -p tcp -m tcp --dport 9000 -j ACCEPT
  
-sudo iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
+* sudo iptables -A INPUT -p tcp --dport 9000 -j ACCEPT
