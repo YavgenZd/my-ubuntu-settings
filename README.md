@@ -32,7 +32,8 @@ GIT
 
 * xclip -sel clip < ~/.ssh/id_rsa.pub
 
-* Config transfer to usb speed 
+Config transfer to usb speed
+----------------------------
 
 *in sudo su
 
