@@ -36,11 +36,13 @@ GIT
 Config transfer to usb speed
 ----------------------------
 
-*in sudo su
+* `sudo su`
 
 * `echo $((16*1024*1024)) > /proc/sys/vm/dirty_background_bytes`
 
 * `echo $((48*1024*1024)) > /proc/sys/vm/dirty_bytes`
+
+* `exit`
 
 Docker 
 -------
@@ -63,5 +65,7 @@ For docker xdebug
 -----------------
 
 * `sudo ufw allow in on docker0 from 172.17.0.0/24 to 172.17.0.1/32 port 9000 comment xdebug`
+
 * `sudo iptables -I INPUT -p tcp -m tcp --dport 9000 -j ACCEPT`
+
 * `sudo iptables -A INPUT -p tcp --dport 9000 -j ACCEPT`
